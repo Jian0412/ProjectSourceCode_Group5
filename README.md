@@ -1,2 +1,7 @@
 # ProjectSourceCode_Group5
 第五组项目源代码 项目名称：电商小平台
+该源代码主要分为三部分，分别为Flume、Sqoop和Hive，对应日志数据采集、业务数据采集以及数据仓库的部分。
+Flume部分主要包含Flume自定义拦截器代码和相关命令脚本文件
+Sqoop部分主要包含数据装载的脚本文件
+Hive部分主要包含HiveQL代码和数据装载脚本
+
