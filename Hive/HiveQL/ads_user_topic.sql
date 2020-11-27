@@ -1,7 +1,4 @@
-ADS层之会员主题
 
-1. 会员主题信息
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_user_topic;
 create external table ads_user_topic(
@@ -19,7 +16,6 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_user_topic';
 --------------------------------------------------------------
 
-数据加载
 --------------------------------------------------------------
 insert into table ads_user_topic
 select
@@ -35,8 +31,6 @@ select
 from dwt_user_topic;
 --------------------------------------------------------------
 
-2. 用户行为漏斗分析
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_user_action_convert_day;
 create external  table ads_user_action_convert_day(
@@ -53,7 +47,6 @@ row format delimited  fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_user_action_convert_day/';
 --------------------------------------------------------------
 
-数据加载
 --------------------------------------------------------------
 insert into table ads_user_action_convert_day
 select 
