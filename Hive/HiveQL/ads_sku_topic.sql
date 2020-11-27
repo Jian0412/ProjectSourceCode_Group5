@@ -1,7 +1,4 @@
-ADS层之会员主题
 
-1. 商品个数信息
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_product_info;
 create external table ads_product_info(
@@ -13,7 +10,6 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_product_info';
 --------------------------------------------------------------
 
-数据加载
 --------------------------------------------------------------
 insert into table ads_product_info
 select
@@ -47,8 +43,7 @@ on
     tmp_sku_num.dt=tmp_spu_num.dt;
 --------------------------------------------------------------
 
-2. 商品销量排名
-建表语句
+
 --------------------------------------------------------------
 drop table if exists ads_product_sale_topN;
 create external table ads_product_sale_topN(
@@ -75,8 +70,6 @@ order by payment_amount desc
 limit 10;
 --------------------------------------------------------------
 
-3. 商品收藏排名
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_product_favor_topN;
 create external table ads_product_favor_topN(
@@ -88,7 +81,6 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_product_favor_topN';
 --------------------------------------------------------------
 
-数据加载
 --------------------------------------------------------------
 insert into table ads_product_favor_topN
 select
@@ -103,8 +95,6 @@ order by favor_count desc
 limit 10;
 --------------------------------------------------------------
 
-4. 商品加入购物车排名
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_product_cart_topN;
 create external table ads_product_cart_topN(
@@ -131,8 +121,6 @@ order by cart_num desc
 limit 10;
 --------------------------------------------------------------
 
-5. 商品退款率排名
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_product_refund_topN;
 create external table ads_product_refund_topN(
@@ -156,8 +144,6 @@ order by refund_ratio desc
 limit 10;
 --------------------------------------------------------------
 
-6. 商品差评率
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_appraise_bad_topN;
 create external table ads_appraise_bad_topN(
@@ -169,7 +155,6 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_appraise_bad_topN';
 --------------------------------------------------------------
 
-数据加载
 --------------------------------------------------------------
 insert into table ads_appraise_bad_topN
 select
