@@ -1,7 +1,4 @@
-ADS层之会员主题
 
-1. 下单数目统计
-建表语句
 --------------------------------------------------------------
 drop table if exists ads_order_daycount;
 create external table ads_order_daycount(
@@ -14,7 +11,7 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_order_daycount';
 --------------------------------------------------------------
 
-数据加载
+
 --------------------------------------------------------------
 insert into table ads_order_daycount
 select
@@ -26,8 +23,7 @@ from dws_user_action_daycount
 where dt='2020-03-10';
 --------------------------------------------------------------
 
-2.支付信息统计
-建表语句
+
 --------------------------------------------------------------
 drop table if exists ads_payment_daycount;
 create external table ads_payment_daycount(
@@ -42,7 +38,7 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_payment_daycount';
 --------------------------------------------------------------
 
-数据加载
+
 --------------------------------------------------------------
 insert into table ads_payment_daycount
 select
@@ -81,8 +77,7 @@ join
 )tmp_time on tmp_payment.dt=tmp_time.dt;
 --------------------------------------------------------------
 
-3. 复购率
-建表语句
+
 --------------------------------------------------------------
 drop table ads_sale_tm_category1_stat_mn;
 create external table ads_sale_tm_category1_stat_mn
@@ -102,7 +97,7 @@ row format delimited fields terminated by '\t'
 location '/warehouse/gmall/ads/ads_sale_tm_category1_stat_mn/';
 --------------------------------------------------------------
 
-数据加载
+
 --------------------------------------------------------------
 with 
 tmp_order as
