@@ -1,7 +1,4 @@
-DWD层之业务数据部分
 
-1. 商品维度表
-建表语句
 ------------------------------------------------------------
 DROP TABLE IF EXISTS `dwd_dim_sku_info`;
 CREATE EXTERNAL TABLE `dwd_dim_sku_info` (
@@ -75,7 +72,7 @@ join
 )c1 on c2.category1_id=c1.id;
 ------------------------------------------------------------------
 
-2. 优惠券表
+
 建表语句
 ------------------------------------------------------------------
 drop table if exists dwd_dim_coupon_info;
@@ -128,7 +125,6 @@ from ods_coupon_info
 where dt='2020-03-10';
 ----------------------------------------------------------------
 
-3. 活动维度表
 建表语句
 ----------------------------------------------------------------
 drop table if exists dwd_dim_activity_info;
@@ -152,7 +148,7 @@ location '/warehouse/gmall/dwd/dwd_dim_activity_info/';
 tblproperties ("parquet.compression"="lzo");
 -----------------------------------------------------------------
 
-数据加载
+
 -----------------------------------------------------------------
 insert overwrite table dwd_dim_activity_info partition(dt='2020-03-10')
 select
@@ -177,8 +173,8 @@ left join
 )rule on info.id = rule.activity_id;
 ----------------------------------------------------------------
 
-4. 地区维度表
-建表语句
+
+
 ----------------------------------------------------------------
 DROP TABLE IF EXISTS `dwd_dim_base_province`;
 CREATE EXTERNAL TABLE `dwd_dim_base_province` (
@@ -210,8 +206,8 @@ join ods_base_region br
 on bp.region_id=br.id;
 ----------------------------------------------------------------
 
-5. 时间维度表
-建表语句
+
+
 ----------------------------------------------------------------
 DROP TABLE IF EXISTS `dwd_dim_date_info`;
 CREATE EXTERNAL TABLE `dwd_dim_date_info`(
